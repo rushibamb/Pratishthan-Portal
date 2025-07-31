@@ -1,0 +1,136 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yatra+One:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom font classes */
+.font-english {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-marathi {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+}
+
+.font-marathi-alt {
+  font-family: 'Yatra One', cursive;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+.font-subtitle {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Custom animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up.delay-300 {
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+.animate-fade-in-up.delay-500 {
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+.animate-fade-in-up.delay-700 {
+  animation-delay: 0.7s;
+  animation-fill-mode: both;
+}
+
+/* Custom scrollbar styles */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #fed7aa;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #fdba74;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #fb923c;
+}
+
+/* Custom media query for very small screens */
+@media (max-width: 357px) {
+  .hero-section-xs {
+    height: 100vh !important;
+    padding-top: 1rem !important;
+  }
+  
+  .hero-heading-xs {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.75rem !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  .hero-subtitle-xs {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1.5rem !important;
+    padding: 0 0.75rem !important;
+  }
+  
+  .hero-icon-xs {
+    width: 4rem !important;
+    height: 4rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero-icon-xs i {
+    font-size: 1.5rem !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+  }
+  
+  .hero-button-xs {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+    bottom: 0.5rem !important;
+  }
+  
+  .hero-content-xs {
+    padding: 0 0.5rem !important;
+    padding-top: 0.5rem !important;
+  }
+}
