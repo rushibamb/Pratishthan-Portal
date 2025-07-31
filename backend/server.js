@@ -33,11 +33,17 @@ app.use('/api/messages', contactMessageRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/upcoming-events', upcomingEventRoutes); // Mount new routes
 
+app.get("/", (req, res) => {
+  res.send("Pratishthan Portal API is running 🚀");
+});
+
 app.get('/api', (req, res) => {
   res.json({ message: 'Hello from the Mandal Backend!' });
 });
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running successfully on port ${PORT}`);
+  console.log(`🚀 Server is running successfully on port ${PORT}`);
+  console.log(`📡 API available at http://localhost:${PORT}/api`);
+  console.log(`🌐 Frontend should connect to: http://localhost:${PORT}/api`);
 });
