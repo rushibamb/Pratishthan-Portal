@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}/api`,
+  // FIX: Changed port from 5000 to the correct port 5001
+  baseURL: 'http://localhost:5001/api',
 });
 
 API.interceptors.request.use((req) => {
@@ -94,7 +95,7 @@ export const uploadImage = (formData) => API.post('/upload', formData, {
 });
 
 
-// --- Upcoming Event Service Functions (NEW) ---
+// --- Upcoming Event Service Functions ---
 export const getUpcomingEvents = () => API.get('/upcoming-events');
 export const createUpcomingEvent = (eventData) => API.post('/upcoming-events', eventData);
 export const updateUpcomingEvent = (id, eventData) => API.put(`/upcoming-events/${id}`, eventData);
