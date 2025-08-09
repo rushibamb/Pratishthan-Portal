@@ -101,4 +101,10 @@ export const updateUpcomingEvent = (id, eventData) => API.put(`/upcoming-events/
 export const deleteUpcomingEvent = (id) => API.delete(`/upcoming-events/${id}`);
 
 
+// --- Donation Service Functions ---
+export const getDonationInfo = () => API.get('/donations');
+export const updateDonationInfo = (donationData) => API.put('/donations', donationData);
+export const createDonationInfo = (donationData) => API.post('/donations', donationData);
+
+
 export default API;

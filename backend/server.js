@@ -14,7 +14,8 @@ const highlightRoutes = require('./routes/highlightRoutes');
 const contactMessageRoutes = require('./routes/contactMessageRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
 const authRoutes = require('./routes/authRoutes');
-const upcomingEventRoutes = require('./routes/upcomingEventRoutes'); // Import new routes
+const upcomingEventRoutes = require('./routes/upcomingEventRoutes');
+const donationRoutes = require('./routes/donationRoutes'); // Import donation routes
 
 connectDB();
 const app = express();
@@ -31,7 +32,8 @@ app.use('/api/activities', activityRoutes);
 app.use('/api/highlights', highlightRoutes);
 app.use('/api/messages', contactMessageRoutes);
 app.use('/api/upload', uploadRoutes);
-app.use('/api/upcoming-events', upcomingEventRoutes); // Mount new routes
+app.use('/api/upcoming-events', upcomingEventRoutes);
+app.use('/api/donations', donationRoutes); // Mount donation routes
 
 app.get('/api', (req, res) => {
   res.json({ message: 'Hello from the Mandal Backend!' });

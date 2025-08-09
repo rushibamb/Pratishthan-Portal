@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { getContent } from '../../services/api';
 import logo from '../../assets/logo_f.jpg';
 
@@ -98,8 +99,22 @@ const HeroSection = ({ language }) => {
         </div>
       </div>
       
-      {/* CTA button positioned at bottom center */}
-      
+      {/* CTA buttons positioned at bottom center */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col sm:flex-row gap-4">
+        <button
+          onClick={() => scrollToSection('about')}
+          className="px-8 py-3 bg-yellow-500 text-orange-900 font-bold rounded-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+        >
+          {language === 'english' ? 'Learn More' : 'अधिक जाणून घ्या'}
+        </button>
+        <Link
+          to="/donation"
+          className="px-8 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+        >
+          <i className="ri-heart-line"></i>
+          {language === 'english' ? 'Donate Now' : 'दान करा'}
+        </Link>
+      </div>
     </section>
   );
 };

@@ -46,6 +46,7 @@ const DashboardPage = () => {
               <AdminLinkCard to="/admin/manage/upcoming-events" title="Manage Upcoming Events" description="Manage the list of upcoming events in the Cultural section." />
               <AdminLinkCard to="/admin/manage/highlights" title="Manage Past Highlights" description="Manage content for previous years, including photos and videos." />
               <AdminLinkCard to="/admin/manage/messages" title="View Contact Messages" description="View and manage messages submitted through the contact form." />
+              <AdminLinkCard to="/admin/manage/donation" title="Manage Donation Information" description="Manage QR codes, bank details, and UPI information for donations." />
             </div>
           </div>
         </div>
