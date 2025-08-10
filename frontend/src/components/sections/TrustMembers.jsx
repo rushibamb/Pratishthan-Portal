@@ -132,21 +132,21 @@ const TrustMembers = ({ language }) => {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {generalMembers.map((member) => (
                 <div key={member._id} className="text-center">
-                  <div className="bg-gradient-to-r from-orange-100 to-red-100 rounded-lg p-4 hover:shadow-md transition-all duration-300 hover:scale-105">
+                  <div className="member-card">
                     {member.imageUrl ? (
                       <img 
                         src={getOptimizedUrl(member.imageUrl, 64)} 
                         alt={member.name[language]}
-                        className="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-white"
+                        className="member-card-image"
                       />
                     ) : (
-                      <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <div className="member-card-image bg-yellow-500 flex items-center justify-center">
                         <i className="ri-user-line text-white text-2xl"></i>
                       </div>
                     )}
-                    <p className="text-red-800 font-semibold text-sm">
+                    <div className="member-card-text">
                       {member.name[language]}
-                    </p>
+                    </div>
                   </div>
                 </div>
               ))}

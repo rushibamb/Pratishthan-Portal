@@ -41,11 +41,15 @@ export default function Navbar({ language, toggleLanguage }) {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-                      <div className="flex items-center gap-3">
-              <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg overflow-hidden">
-                <img src={logo} alt="Logo" className="w-full h-full object-cover" />
-              </div>
-            <span className="text-xl font-bold text-red-900 font-pacifico">
+          <div className="flex items-center gap-3">
+            <div className="navbar-logo-container w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-2 border-orange-200">
+              <img 
+                src={logo} 
+                alt="Logo" 
+                className="navbar-logo-image" 
+              />
+            </div>
+            <span className="text-lg sm:text-xl font-bold text-red-900 font-pacifico">
               मानाचा पहिला गणपती
             </span>
           </div>
