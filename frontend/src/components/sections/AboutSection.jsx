@@ -78,7 +78,7 @@ const AboutSection = ({ language }) => {
             <img
               src={content.imageUrl}
               alt="Temple Interior"
-              className="rounded-lg shadow-2xl w-full h-80 object-cover object-top"
+              className="rounded-lg shadow-2xl w-full h-90 object-cover object-top"
             />
             <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full flex items-center justify-center shadow-lg overflow-hidden border-2 border-yellow-300">
               <img src={logo} alt="Logo" className="w-full h-full object-cover" />

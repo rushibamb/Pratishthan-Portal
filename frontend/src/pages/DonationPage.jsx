@@ -299,9 +299,42 @@ const DonationPage = ({ language }) => {
             </div>
           )}
 
-          {/* Bank Details Section */}
+          {/* UPI ID Section - Order 1 on mobile, Order 2 on desktop */}
+          {donationInfo?.upiId && (
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 order-1 md:order-2">
+              <h2 className="text-2xl font-bold text-yellow-200 mb-6 text-center">
+                {language === 'english' ? 'UPI Payment' : 'UPI पेमेंट'}
+              </h2>
+              <div className="text-center">
+                <div 
+                  className="bg-yellow-400/20 rounded-lg p-4 mb-4 cursor-pointer transform hover:scale-105 transition-transform duration-200 hover:bg-yellow-400/30"
+                  onClick={handleUPIClick}
+                  title={language === 'english' ? 'Click to open UPI apps' : 'UPI ऍप्स उघडण्यासाठी क्लिक करा'}
+                >
+                  <span className="text-yellow-200 font-medium">
+                    {language === 'english' ? 'UPI ID' : 'UPI ID'}
+                  </span>
+                  <div className="text-2xl font-bold text-yellow-200 mt-2 flex items-center justify-center">
+                    {donationInfo.upiId}
+                    <i className="ri-external-link-line ml-2 text-lg"></i>
+                  </div>
+                  <div className="text-yellow-100 text-sm mt-2">
+                    {language === 'english' ? 'Click to open payment apps' : 'पेमेंट ऍप्स उघडण्यासाठी क्लिक करा'}
+                  </div>
+                </div>
+                <p className="text-yellow-100">
+                  {language === 'english' 
+                    ? 'Click the UPI ID to open payment apps or copy to clipboard' 
+                    : 'UPI ID वर क्लिक करून पेमेंट ऍप्स उघडा किंवा क्लिपबोर्डवर कॉपी करा'
+                  }
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* Bank Details Section - Order 2 on mobile, Order 1 on desktop */}
           {donationInfo?.bankDetails && (
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 order-2 md:order-1">
               <h2 className="text-2xl font-bold text-yellow-200 mb-6 text-center">
                 {language === 'english' ? 'Bank Details' : 'बँक तपशील'}
               </h2>
@@ -381,39 +414,6 @@ const DonationPage = ({ language }) => {
                     </span>
                   </div>
                 )}
-              </div>
-            </div>
-          )}
-
-          {/* UPI ID Section */}
-          {donationInfo?.upiId && (
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h2 className="text-2xl font-bold text-yellow-200 mb-6 text-center">
-                {language === 'english' ? 'UPI Payment' : 'UPI पेमेंट'}
-              </h2>
-              <div className="text-center">
-                <div 
-                  className="bg-yellow-400/20 rounded-lg p-4 mb-4 cursor-pointer transform hover:scale-105 transition-transform duration-200 hover:bg-yellow-400/30"
-                  onClick={handleUPIClick}
-                  title={language === 'english' ? 'Click to open UPI apps' : 'UPI ऍप्स उघडण्यासाठी क्लिक करा'}
-                >
-                  <span className="text-yellow-200 font-medium">
-                    {language === 'english' ? 'UPI ID' : 'UPI ID'}
-                  </span>
-                  <div className="text-2xl font-bold text-yellow-200 mt-2 flex items-center justify-center">
-                    {donationInfo.upiId}
-                    <i className="ri-external-link-line ml-2 text-lg"></i>
-                  </div>
-                  <div className="text-yellow-100 text-sm mt-2">
-                    {language === 'english' ? 'Click to open payment apps' : 'पेमेंट ऍप्स उघडण्यासाठी क्लिक करा'}
-                  </div>
-                </div>
-                <p className="text-yellow-100">
-                  {language === 'english' 
-                    ? 'Click the UPI ID to open payment apps or copy to clipboard' 
-                    : 'UPI ID वर क्लिक करून पेमेंट ऍप्स उघडा किंवा क्लिपबोर्डवर कॉपी करा'
-                  }
-                </p>
               </div>
             </div>
           )}
