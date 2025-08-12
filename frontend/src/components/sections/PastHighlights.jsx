@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getAllYears, getHighlightsByYear } from '../../services/api';
+import { getOptimizedUrl } from '../../utils/cloudinary';
 
 const PastHighlights = ({ language }) => {
   const [years, setYears] = useState([]);
@@ -102,7 +103,7 @@ const PastHighlights = ({ language }) => {
                 {highlights.photos.map((photo) => (
                   <div key={photo._id} className="bg-white/70 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                     <img
-                      src={photo.src}
+                      src={getOptimizedUrl(photo.src, { width: 400, height: 300 })}
                       alt={photo.title}
                       className="w-full h-48 object-cover object-top"
                     />
@@ -124,7 +125,7 @@ const PastHighlights = ({ language }) => {
                   <div key={video._id} className="bg-white/70 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                     <div className="relative">
                       <img
-                        src={video.thumbnail}
+                        src={getOptimizedUrl(video.thumbnail, { width: 400, height: 300 })}
                         alt={video.title}
                         className="w-full h-48 object-cover object-top"
                       />

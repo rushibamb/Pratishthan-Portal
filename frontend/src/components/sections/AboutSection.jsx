@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getContent } from '../../services/api';
+import { getOptimizedUrl } from '../../utils/cloudinary';
 import logo from '../../assets/logo_f.jpg';
 
 const AboutSection = ({ language }) => {
@@ -87,7 +88,7 @@ const AboutSection = ({ language }) => {
           {/* Image - now dynamic */}
           <div className="relative">
             <img
-              src={content.imageUrl}
+              src={getOptimizedUrl(content.imageUrl, { width: 800, height: 600 })}
               alt="Temple Interior"
               className="rounded-lg shadow-2xl w-full h-90 object-cover object-top"
             />

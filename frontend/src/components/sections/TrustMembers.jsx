@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getMembers } from '../../services/api';
+import { getOptimizedUrl } from '../../utils/cloudinary';
 
 const TrustMembers = ({ language }) => {
   const [featuredMembers, setFeaturedMembers] = useState([]);
@@ -43,15 +44,6 @@ const TrustMembers = ({ language }) => {
 
   const currentContent = content[language];
 
-  // Function to create an optimized Cloudinary URL for thumbnails
-  const getOptimizedUrl = (url, width = 128) => {
-    if (!url || typeof url !== 'string') return '';
-    const parts = url.split('/upload/');
-    if (parts.length < 2) return url; // Return original URL if format is unexpected
-    // w_128 = 128px wide, h_128 = 128px high, c_fill = crop to fill, q_auto = auto quality
-    return `${parts[0]}/upload/w_${width},h_${width},c_fill,q_auto/${parts[1]}`;
-  };
-
   if (loading) {
     return <div className="py-20 text-center">Loading Members...</div>;
   }
@@ -79,7 +71,7 @@ const TrustMembers = ({ language }) => {
                       <div className="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg border-3 border-orange-100">
                         {member.imageUrl ? (
                           <img
-                            src={getOptimizedUrl(member.imageUrl)}
+                            src={getOptimizedUrl(member.imageUrl, { width: 128, height: 128 })}
                             alt={member.name?.[language] || 'Member'}
                             className="w-full h-full object-cover object-top"
                           />
@@ -149,7 +141,7 @@ const TrustMembers = ({ language }) => {
                         <div className="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg border-3 border-orange-100">
                           {member.imageUrl ? (
                             <img 
-                              src={getOptimizedUrl(member.imageUrl, 96)} 
+                              src={getOptimizedUrl(member.imageUrl, { width: 64, height: 64 })} 
                               alt={member.name?.[language] || 'Member'}
                               className="w-full h-full object-cover object-top"
                             />

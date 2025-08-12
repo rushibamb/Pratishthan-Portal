@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { getContent } from '../../services/api';
+import { getOptimizedUrl } from '../../utils/cloudinary';
 import logo from '../../assets/logo_f.jpg';
 
 const HeroSection = ({ language }) => {
@@ -55,7 +56,7 @@ const HeroSection = ({ language }) => {
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-fixed bg-no-repeat"
         style={{ 
-          backgroundImage: `url('${content.imageUrl}')`,
+          backgroundImage: `url('${getOptimizedUrl(content.imageUrl, { width: 1920, quality: 'auto' })}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'brightness(0.8) contrast(1.1)'

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getMedia } from '../../services/api';
+import { getOptimizedUrl } from '../../utils/cloudinary';
 
 const MediaGallery = ({ language }) => {
   const [activeTab, setActiveTab] = useState('photos');
@@ -107,7 +108,7 @@ const MediaGallery = ({ language }) => {
                 onClick={() => openLightbox(photo.url)}
               >
                 <img
-                  src={photo.url}
+                  src={getOptimizedUrl(photo.url, { width: 400, height: 300 })}
                   alt={photo.title}
                   className="w-full h-48 object-cover object-top"
                 />
@@ -125,7 +126,7 @@ const MediaGallery = ({ language }) => {
               <div key={video._id} className="bg-white/70 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <div className="relative">
                   <img
-                    src={video.url} // Thumbnail URL
+                    src={getOptimizedUrl(video.url, { width: 400, height: 300 })} // Thumbnail URL
                     alt={video.title}
                     className="w-full h-48 object-cover object-top"
                   />
