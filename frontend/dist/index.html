@@ -7,9 +7,30 @@
     
     <title>Ganpati Mandal Trust</title>
     <meta name="description" content="Official website for the Ganpati Mandal Trust, celebrating a legacy of faith and service in Pune, Maharashtra." />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="data:text/jsx;base64,aW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JzsKaW1wb3J0IFJlYWN0RE9NIGZyb20gJ3JlYWN0LWRvbS9jbGllbnQnOwppbXBvcnQgQXBwIGZyb20gJy4vQXBwLmpzeCc7CmltcG9ydCAnLi9pbmRleC5jc3MnOyAvLyBNYWtlIHN1cmUgdGhpcyBwYXRoIGlzIGNvcnJlY3QKClJlYWN0RE9NLmNyZWF0ZVJvb3QoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Jvb3QnKSkucmVuZGVyKAogIDxSZWFjdC5TdHJpY3RNb2RlPgogICAgPEFwcCAvPgogIDwvUmVhY3QuU3RyaWN0TW9kZT4sCik7" as="script" />
+    
+    <!-- Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
 
-    <script type="module" crossorigin src="/assets/index-DsJlkxNt.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Bm7csEtt.css">
+    <script type="module" crossorigin src="/assets/index-B9SN3o96.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-C0DUGSOM.js">
+    <link rel="modulepreload" crossorigin href="/assets/router-DueTryxv.js">
+    <link rel="modulepreload" crossorigin href="/assets/utils-Cfc3znND.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-ylQZZTSc.css">
   </head>
   <body class="antialiased">
     <div id="root"></div>
