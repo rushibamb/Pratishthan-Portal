@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getMedia } from '../../services/api';
 import { getOptimizedUrl } from '../../utils/cloudinary';
+import LoadingSpinner from '../LoadingSpinner';
 
 const MediaGallery = ({ language }) => {
   const [activeTab, setActiveTab] = useState('photos');
@@ -54,7 +55,23 @@ const MediaGallery = ({ language }) => {
   };
 
   if (loading) {
-    return <div className="py-20 text-center">Loading Gallery...</div>;
+    return (
+      <section id="media" className="py-20 bg-gradient-to-b from-amber-50 to-orange-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-red-900 mb-4 font-inter">
+              {currentContent.title}
+            </h2>
+            <p className="text-xl text-orange-700 font-medium">
+              {currentContent.subtitle}
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <LoadingSpinner size="lg" color="orange" text="Loading Gallery..." />
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
@@ -108,9 +125,10 @@ const MediaGallery = ({ language }) => {
                 onClick={() => openLightbox(photo.url)}
               >
                 <img
-                  src={getOptimizedUrl(photo.url, { width: 400, height: 300 })}
+                  src={getOptimizedUrl(photo.url, { width: 400, height: 300, quality: 'auto' })}
                   alt={photo.title}
                   className="w-full h-48 object-cover object-top"
+                  loading="lazy"
                 />
                 <div className="p-4">
                   <h3 className="text-lg font-semibold text-red-800">{photo.title}</h3>
@@ -126,9 +144,10 @@ const MediaGallery = ({ language }) => {
               <div key={video._id} className="bg-white/70 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <div className="relative">
                   <img
-                    src={getOptimizedUrl(video.url, { width: 400, height: 300 })} // Thumbnail URL
+                    src={getOptimizedUrl(video.url, { width: 400, height: 300, quality: 'auto' })}
                     alt={video.title}
                     className="w-full h-48 object-cover object-top"
+                    loading="lazy"
                   />
                   <a href={video.videoUrl} target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center shadow-lg transition-colors">

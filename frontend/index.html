@@ -7,6 +7,25 @@
     
     <title>Ganpati Mandal Trust</title>
     <meta name="description" content="Official website for the Ganpati Mandal Trust, celebrating a legacy of faith and service in Pune, Maharashtra." />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/main.jsx" as="script" />
+    <link rel="preload" href="/src/index.css" as="style" />
+    
+    <!-- Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
 
   </head>
   <body class="antialiased">

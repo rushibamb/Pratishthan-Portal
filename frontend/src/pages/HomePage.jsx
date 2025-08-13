@@ -13,19 +13,48 @@ import PastHighlights from '../components/sections/PastHighlights';
 import SponsorsSection from '../components/sections/SponsorsSection';
 import ContactSection from '../components/sections/ContactSection';
 
+// Import LazySection for performance optimization
+import LazySection from '../components/LazySection';
+
 export default function HomePage({ language }) {
   return (
     <main>
+      {/* Above the fold - load immediately */}
       <HeroSection language={language} />
       <AboutSection language={language} />
-      <EventSchedule language={language} />
-      <TrustMembers language={language} />
-      <MediaGallery language={language} />
-      <SocialWork language={language} />
-      <CulturalActivities language={language} />
-      <PastHighlights language={language} />
-      <SponsorsSection language={language} />
-      <ContactSection language={language} />
+      
+      {/* Below the fold - lazy load for better performance */}
+      <LazySection>
+        <EventSchedule language={language} />
+      </LazySection>
+      
+      <LazySection>
+        <TrustMembers language={language} />
+      </LazySection>
+      
+      <LazySection>
+        <MediaGallery language={language} />
+      </LazySection>
+      
+      <LazySection>
+        <SocialWork language={language} />
+      </LazySection>
+      
+      <LazySection>
+        <CulturalActivities language={language} />
+      </LazySection>
+      
+      <LazySection>
+        <PastHighlights language={language} />
+      </LazySection>
+      
+      <LazySection>
+        <SponsorsSection language={language} />
+      </LazySection>
+      
+      <LazySection>
+        <ContactSection language={language} />
+      </LazySection>
     </main>
   );
 }
