@@ -16,15 +16,16 @@ export default defineConfig({
       }
     },
     chunkSizeWarningLimit: 1000,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
-    }
+    minify: 'esbuild', // Use esbuild for faster builds
+    target: 'es2015', // Target modern browsers
+    sourcemap: false, // Disable sourcemaps for production
+    assetsInlineLimit: 4096 // Inline small assets
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'axios']
+  },
+  // Performance optimizations
+  server: {
+    hmr: true
   }
 })

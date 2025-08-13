@@ -30,5 +30,8 @@
         }
       ]
     }
-  ]
+  ],
+  "buildCommand": "npm run build:vercel",
+  "outputDirectory": "dist",
+  "installCommand": "npm ci --prefer-offline --no-audit"
 }
