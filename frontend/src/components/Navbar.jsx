@@ -135,7 +135,7 @@ export default function Navbar({ language, toggleLanguage }) {
             
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-red-800 hover:text-orange-600 transition-colors p-2 rounded-lg hover:bg-orange-50"
+              className="text-red-800 hover:text-orange-700 transition-colors p-2 rounded-lg hover:bg-orange-50"
             >
               <i className={`${isMenuOpen ? 'ri-close-line' : 'ri-menu-line'} text-2xl w-6 h-6 flex items-center justify-center`}></i>
             </button>
