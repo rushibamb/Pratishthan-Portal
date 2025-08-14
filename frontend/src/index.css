@@ -12,7 +12,9 @@
 
 /* Custom font classes */
 .font-english {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .font-marathi {
