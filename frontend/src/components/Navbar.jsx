@@ -12,6 +12,10 @@ export default function Navbar({ language, toggleLanguage }) {
       trustMembers: "Trust Members",
       events: "Events",
       media: "Media",
+      social: "Social Work",
+      cultural: "Cultural",
+      sponsors: "Sponsors",
+      highlights: "Highlights",
       contact: "Contact Us",
       langToggle: "मराठी"
     },
@@ -21,6 +25,10 @@ export default function Navbar({ language, toggleLanguage }) {
       trustMembers: "ट्रस्ट सदस्य",
       events: "कार्यक्रम",
       media: "मीडिया",
+      social: "सामाजिक कार्य",
+      cultural: "सांस्कृतिक",
+      sponsors: "प्रायोजक",
+      highlights: "हायलाइट्स",
       contact: "संपर्क",
       langToggle: "English"
     }
@@ -42,14 +50,14 @@ export default function Navbar({ language, toggleLanguage }) {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="navbar-logo-container w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-2 border-orange-200">
+            <div className="navbar-logo-container w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 border-2 border-orange-200 rounded-full overflow-hidden">
               <img 
                 src={logo} 
                 alt="Logo" 
-                className="navbar-logo-image" 
+                className="w-full h-full object-cover" 
               />
             </div>
-            <span className="text-lg sm:text-xl font-bold text-red-900 font-pacifico">
+            <span className="text-lg sm:text-xl font-bold text-red-900 font-pacifico leading-none">
               मानाचा पहिला गणपती
             </span>
           </div>
@@ -58,37 +66,49 @@ export default function Navbar({ language, toggleLanguage }) {
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={() => scrollToSection('home')}
-              className={`px-4 py-2 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
+              className={`h-10 flex items-center px-4 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
             >
               {currentContent.home}
             </button>
             <button
               onClick={() => scrollToSection('about')}
-              className={`px-4 py-2 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
+              className={`h-10 flex items-center px-4 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
             >
               {currentContent.about}
             </button>
             <button
               onClick={() => scrollToSection('trust-members')}
-              className={`px-4 py-2 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
+              className={`h-10 flex items-center px-4 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
             >
               {currentContent.trustMembers}
             </button>
             <button
               onClick={() => scrollToSection('events')}
-              className={`px-4 py-2 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
+              className={`h-10 flex items-center px-4 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
             >
               {currentContent.events}
             </button>
             <button
               onClick={() => scrollToSection('media')}
-              className={`px-4 py-2 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
+              className={`h-10 flex items-center px-4 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
             >
               {currentContent.media}
             </button>
             <button
+              onClick={() => scrollToSection('highlights')}
+              className={`h-10 flex items-center px-4 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
+            >
+              {currentContent.highlights}
+            </button>
+            <button
+              onClick={() => scrollToSection('sponsors')}
+              className={`h-10 flex items-center px-4 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
+            >
+              {currentContent.sponsors}
+            </button>
+            <button
               onClick={() => scrollToSection('contact')}
-              className={`px-4 py-2 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
+              className={`h-10 flex items-center px-4 rounded-lg text-red-800 hover:text-orange-600 hover:bg-orange-50 font-medium transition-all duration-200 cursor-pointer border border-transparent hover:border-orange-200 min-w-fit ${language === 'marathi' ? 'font-marathi' : ''}`}
             >
               {currentContent.contact}
             </button>
@@ -155,6 +175,18 @@ export default function Navbar({ language, toggleLanguage }) {
                 className={`block w-full text-left text-red-800 hover:text-orange-600 font-medium transition-all duration-200 py-3 px-4 rounded-lg hover:bg-orange-50 cursor-pointer border border-transparent hover:border-orange-200 ${language === 'marathi' ? 'font-marathi' : ''}`}
               >
                 {currentContent.media}
+              </button>
+              <button
+                onClick={() => scrollToSection('highlights')}
+                className={`block w-full text-left text-red-800 hover:text-orange-600 font-medium transition-all duration-200 py-3 px-4 rounded-lg hover:bg-orange-50 cursor-pointer border border-transparent hover:border-orange-200 ${language === 'marathi' ? 'font-marathi' : ''}`}
+              >
+                {currentContent.highlights}
+              </button>
+              <button
+                onClick={() => scrollToSection('sponsors')}
+                className={`block w-full text-left text-red-800 hover:text-orange-600 font-medium transition-all duration-200 py-3 px-4 rounded-lg hover:bg-orange-50 cursor-pointer border border-transparent hover:border-orange-200 ${language === 'marathi' ? 'font-marathi' : ''}`}
+              >
+                {currentContent.sponsors}
               </button>
               <button
                 onClick={() => scrollToSection('contact')}

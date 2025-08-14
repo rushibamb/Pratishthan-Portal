@@ -171,8 +171,12 @@ const ManageMediaPage = () => {
               ) : (
                 <>
                   <div>
-                    <label className="block text-sm font-medium">Thumbnail URL</label>
-                    <input type="text" name="url" value={formData.url} onChange={handleChange} className="mt-1 w-full border-gray-300 rounded-md shadow-sm" />
+                    <label className="block text-sm font-medium">Thumbnail</label>
+                    <ImageUpload 
+                      label="Video Thumbnail"
+                      value={formData.url}
+                      onUploadSuccess={handleImageUploadSuccess}
+                    />
                   </div>
                   <div>
                     <label className="block text-sm font-medium">Video URL (e.g., YouTube)</label>

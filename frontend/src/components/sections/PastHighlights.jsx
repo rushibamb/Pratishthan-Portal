@@ -58,7 +58,7 @@ const PastHighlights = ({ language }) => {
   const currentContent = content[language];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-orange-50 to-amber-50">
+    <section id="highlights" className="py-20 bg-gradient-to-b from-orange-50 to-amber-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">

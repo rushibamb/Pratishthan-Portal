@@ -117,21 +117,21 @@ const MediaGallery = ({ language }) => {
 
         {/* Content */}
         {activeTab === 'photos' && (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {photos.map((photo) => (
               <div 
                 key={photo._id} 
-                className="bg-white/70 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                className="bg-white/70 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 md:hover:scale-105 cursor-pointer"
                 onClick={() => openLightbox(photo.url)}
               >
                 <img
-                  src={getOptimizedUrl(photo.url, { width: 400, height: 300, quality: 'auto' })}
+                  src={getOptimizedUrl(photo.url, { width: 360, height: 240, quality: 'auto' })}
                   alt={photo.title}
-                  className="w-full h-48 object-cover object-top"
+                  className="w-full h-40 md:h-48 object-cover object-top"
                   loading="lazy"
                 />
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold text-red-800">{photo.title}</h3>
+                  <h3 className="text-base md:text-lg font-semibold text-red-800">{photo.title}</h3>
                 </div>
               </div>
             ))}
@@ -139,24 +139,24 @@ const MediaGallery = ({ language }) => {
         )}
 
         {activeTab === 'videos' && (
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
             {videos.map((video) => (
               <div key={video._id} className="bg-white/70 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <div className="relative">
                   <img
-                    src={getOptimizedUrl(video.url, { width: 400, height: 300, quality: 'auto' })}
+                    src={getOptimizedUrl(video.url, { width: 360, height: 240, quality: 'auto' })}
                     alt={video.title}
-                    className="w-full h-48 object-cover object-top"
+                    className="w-full h-40 md:h-48 object-cover object-top"
                     loading="lazy"
                   />
                   <a href={video.videoUrl} target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center shadow-lg transition-colors">
-                      <i className="ri-play-fill text-white text-2xl"></i>
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center shadow-lg transition-colors">
+                      <i className="ri-play-fill text-white text-xl md:text-2xl"></i>
                     </div>
                   </a>
                 </div>
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold text-red-800">{video.title}</h3>
+                  <h3 className="text-base md:text-lg font-semibold text-red-800">{video.title}</h3>
                 </div>
               </div>
             ))}

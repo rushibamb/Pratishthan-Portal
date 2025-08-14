@@ -100,8 +100,8 @@ const HeroSection = ({ language }) => {
         </div>
       </div>
       
-      {/* CTA buttons positioned at bottom center */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col sm:flex-row gap-4">
+      {/* CTA buttons positioned at bottom center with Instagram */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col sm:flex-row items-center gap-4">
         <button
           onClick={() => scrollToSection('about')}
           className="px-8 py-3 bg-yellow-500 text-orange-900 font-bold rounded-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
@@ -115,6 +115,15 @@ const HeroSection = ({ language }) => {
           <i className="ri-heart-line"></i>
           {language === 'english' ? 'Donate Now' : 'दान करा'}
         </Link>
+        <a
+          href="https://www.instagram.com/friendship_group_official/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-12 h-12 bg-white/80 hover:bg-white text-red-700 hover:text-orange-600 rounded-full flex items-center justify-center shadow-lg transition-all"
+          title="Follow us on Instagram"
+        >
+          <i className="ri-instagram-line text-2xl"></i>
+        </a>
       </div>
     </section>
   );

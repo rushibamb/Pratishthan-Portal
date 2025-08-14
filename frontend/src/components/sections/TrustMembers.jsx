@@ -63,18 +63,18 @@ const TrustMembers = ({ language }) => {
                 {currentContent.subtitle}
               </p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
               {featuredMembers.map((member) => (
                 <div 
                   key={member._id} 
-                  className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="bg-white/80 backdrop-blur-sm rounded-xl p-3 md:p-4 shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 md:hover:scale-105"
                 >
                   <div className="text-center">
                     <div className="relative mb-4">
-                      <div className="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg border-3 border-orange-100">
+                      <div className="w-20 h-20 md:w-24 md:h-24 mx-auto rounded-full overflow-hidden shadow-lg border-3 border-orange-100">
                         {member.imageUrl ? (
                           <img
-                            src={getOptimizedUrl(member.imageUrl, { width: 128, height: 128 })}
+                            src={getOptimizedUrl(member.imageUrl, { width: 112, height: 112 })}
                             alt={member.name?.[language] || 'Member'}
                             className="w-full h-full object-cover object-top"
                           />
@@ -84,33 +84,33 @@ const TrustMembers = ({ language }) => {
                           </div>
                         )}
                       </div>
-                      <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
-                        <i className="ri-user-star-line text-white text-lg"></i>
+                      <div className="absolute -bottom-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-yellow-500 rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+                        <i className="ri-user-star-line text-white text-base md:text-lg"></i>
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-red-800 mb-2 leading-tight">
+                    <h3 className="text-base md:text-lg font-bold text-amber-900 mb-1 md:mb-2 leading-tight">
                       {member.name?.[language] || 'Member Name'}
                     </h3>
-                    <p className="text-base text-orange-700 font-medium mb-4">
+                    <p className="text-sm md:text-base text-gray-700 font-medium mb-3 md:mb-4">
                       {member.designation?.[language] || 'Member'}
                     </p>
                     <div className="flex justify-center gap-3">
                       {member.phone && (
                         <a 
                           href={`tel:${member.phone}`}
-                          className="w-10 h-10 bg-orange-500 hover:bg-orange-600 text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-md"
+                          className="w-8 h-8 md:w-10 md:h-10 bg-orange-500 hover:bg-orange-600 text-white rounded-full flex items-center justify-center transition-all duration-200 md:hover:scale-110 shadow-md"
                           title={`Call ${member.name?.[language] || 'Member'}`}
                         >
-                          <i className="ri-phone-line text-base"></i>
+                          <i className="ri-phone-line text-sm md:text-base"></i>
                         </a>
                       )}
                       {member.email && (
                         <a 
                           href={`mailto:${member.email}`}
-                          className="w-10 h-10 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 shadow-md"
+                          className="w-8 h-8 md:w-10 md:h-10 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center transition-all duration-200 md:hover:scale-110 shadow-md"
                           title={`Email ${member.name?.[language] || 'Member'}`}
                         >
-                          <i className="ri-mail-line text-base"></i>
+                          <i className="ri-mail-line text-sm md:text-base"></i>
                         </a>
                       )}
                     </div>
@@ -143,16 +143,16 @@ const TrustMembers = ({ language }) => {
                 md:max-h-[calc(6*8rem+6rem)]
               "
             >
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-6">
                 {generalMembers.map((member) => (
                   <div key={member._id} className="text-center group">
-                    <div className="member-card bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:border-orange-300">
+                    <div className="member-card bg-white/80 backdrop-blur-sm rounded-xl p-3 md:p-4 shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 md:hover:scale-105 hover:border-orange-300">
                       <div className="text-center">
                         <div className="relative mb-4">
-                          <div className="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg border-3 border-orange-100">
+                          <div className="w-20 h-20 md:w-24 md:h-24 mx-auto rounded-full overflow-hidden shadow-lg border-3 border-orange-100">
                             {member.imageUrl ? (
                               <img 
-                                src={getOptimizedUrl(member.imageUrl, { width: 64, height: 64 })} 
+                                src={getOptimizedUrl(member.imageUrl, { width: 96, height: 96 })} 
                                 alt={member.name?.[language] || 'Member'}
                                 className="w-full h-full object-cover object-top"
                               />
@@ -163,7 +163,7 @@ const TrustMembers = ({ language }) => {
                             )}
                           </div>
                         </div>
-                        <h4 className="text-xl font-bold text-gray-900 leading-tight line-clamp-2">
+                        <h4 className="text-sm md:text-lg font-bold text-amber-900 leading-tight line-clamp-2">
                           {member.name?.[language] || 'Member Name'}
                         </h4>
                       </div>
