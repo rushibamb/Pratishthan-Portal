@@ -8,6 +8,22 @@ const ContactMessage = require('../models/ContactMessage');
 const createMessage = async (req, res) => {
   try {
     const { name, email, message } = req.body;
+    
+    // Validate required fields
+    if (!name || !email || !message) {
+      return res.status(400).json({ 
+        message: 'All fields (name, email, message) are required' 
+      });
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ 
+        message: 'Please provide a valid email address' 
+      });
+    }
+
     const newMessage = new ContactMessage({ name, email, message });
     await newMessage.save();
     res.status(201).json({ message: 'Message sent successfully!' });

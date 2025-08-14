@@ -22,6 +22,7 @@ import ManageMediaPage from '/src/admin/pages/ManageMediaPage.jsx';
 import ManageActivitiesPage from '/src/admin/pages/ManageActivitiesPage.jsx';
 import ManageHighlightsPage from '/src/admin/pages/ManageHighlightsPage.jsx';
 import ManageMessagesPage from '/src/admin/pages/ManageMessagesPage.jsx';
+
 import ManageUpcomingEventsPage from '/src/admin/pages/ManageUpcomingEventsPage.jsx';
 import ManageDonationPage from '/src/admin/pages/ManageDonationPage.jsx';
 
@@ -75,6 +76,7 @@ function App() {
           <Route path="/admin/manage/activities/:sectionType" element={<ProtectedRoute><ManageActivitiesPage /></ProtectedRoute>} />
           <Route path="/admin/manage/highlights" element={<ProtectedRoute><ManageHighlightsPage /></ProtectedRoute>} />
           <Route path="/admin/manage/messages" element={<ProtectedRoute><ManageMessagesPage /></ProtectedRoute>} />
+
           <Route path="/admin/manage/upcoming-events" element={<ProtectedRoute><ManageUpcomingEventsPage /></ProtectedRoute>} />
           <Route path="/admin/manage/donation" element={<ProtectedRoute><ManageDonationPage /></ProtectedRoute>} />
 

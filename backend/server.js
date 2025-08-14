@@ -12,6 +12,7 @@ const mediaRoutes = require('./routes/mediaRoutes');
 const activityRoutes = require('./routes/activityRoutes');
 const highlightRoutes = require('./routes/highlightRoutes');
 const contactMessageRoutes = require('./routes/contactMessageRoutes');
+
 const uploadRoutes = require('./routes/uploadRoutes');
 const authRoutes = require('./routes/authRoutes');
 const upcomingEventRoutes = require('./routes/upcomingEventRoutes');
@@ -31,6 +32,7 @@ app.use('/api/media', mediaRoutes);
 app.use('/api/activities', activityRoutes);
 app.use('/api/highlights', highlightRoutes);
 app.use('/api/messages', contactMessageRoutes);
+
 app.use('/api/upload', uploadRoutes);
 app.use('/api/upcoming-events', upcomingEventRoutes);
 app.use('/api/donations', donationRoutes); // Mount donation routes
