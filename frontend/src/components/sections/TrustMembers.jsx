@@ -28,8 +28,8 @@ const TrustMembers = ({ language }) => {
       setLoading(true);
       try {
         const [featuredRes, generalRes] = await Promise.all([
-          getMembers(true),  // Get featured members
-          getMembers(false)  // Get general members
+          getMembers(true),  // Featured members
+          getMembers(false)  // General members
         ]);
         setFeaturedMembers(featuredRes.data);
         setGeneralMembers(generalRes.data);
@@ -52,7 +52,7 @@ const TrustMembers = ({ language }) => {
     <section id="trust-members" className="py-20 bg-gradient-to-b from-amber-50 to-orange-50">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* **FIX: Only render the Featured Members section if there are any** */}
+        {/* Featured Members */}
         {featuredMembers.length > 0 && (
           <>
             <div className="text-center mb-16">
@@ -65,7 +65,10 @@ const TrustMembers = ({ language }) => {
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {featuredMembers.map((member) => (
-                <div key={member._id} className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div 
+                  key={member._id} 
+                  className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                >
                   <div className="text-center">
                     <div className="relative mb-4">
                       <div className="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg border-3 border-orange-100">
@@ -118,7 +121,7 @@ const TrustMembers = ({ language }) => {
           </>
         )}
 
-        {/* All Members Section with Scrollable Grid */}
+        {/* All Members */}
         <div className="mt-20 pt-16 border-t border-orange-200">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold text-red-900 mb-4">
@@ -131,38 +134,45 @@ const TrustMembers = ({ language }) => {
           
           {/* Scrollable Members Container */}
           <div className="bg-white/50 backdrop-blur-sm rounded-lg p-8 shadow-lg border border-orange-200">
-            {/* Desktop: 5-6 rows, Mobile: 4-5 rows */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-              {generalMembers.map((member) => (
-                <div key={member._id} className="text-center group">
-                  <div className="member-card bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:border-orange-300">
-                    <div className="text-center">
-                      <div className="relative mb-4">
-                        <div className="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg border-3 border-orange-100">
-                          {member.imageUrl ? (
-                            <img 
-                              src={getOptimizedUrl(member.imageUrl, { width: 64, height: 64 })} 
-                              alt={member.name?.[language] || 'Member'}
-                              className="w-full h-full object-cover object-top"
-                            />
-                          ) : (
-                            <div className="w-full h-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
-                              <i className="ri-user-line text-white text-3xl"></i>
-                            </div>
-                          )}
+            <div 
+              className="
+                overflow-y-auto 
+                pr-2
+                custom-scrollbar
+                max-h-[calc(4*8rem+5rem)] 
+                md:max-h-[calc(6*8rem+6rem)]
+              "
+            >
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                {generalMembers.map((member) => (
+                  <div key={member._id} className="text-center group">
+                    <div className="member-card bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-orange-200 hover:shadow-xl transition-all duration-300 hover:scale-105 hover:border-orange-300">
+                      <div className="text-center">
+                        <div className="relative mb-4">
+                          <div className="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg border-3 border-orange-100">
+                            {member.imageUrl ? (
+                              <img 
+                                src={getOptimizedUrl(member.imageUrl, { width: 64, height: 64 })} 
+                                alt={member.name?.[language] || 'Member'}
+                                className="w-full h-full object-cover object-top"
+                              />
+                            ) : (
+                              <div className="w-full h-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+                                <i className="ri-user-line text-white text-3xl"></i>
+                              </div>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                      <div className="member-card-text">
                         <h4 className="text-xl font-bold text-gray-900 leading-tight line-clamp-2">
                           {member.name?.[language] || 'Member Name'}
                         </h4>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-            
+
             {/* Scroll Indicator */}
             {generalMembers.length > 20 && (
               <div className="text-center mt-6 pt-4 border-t border-orange-200">
