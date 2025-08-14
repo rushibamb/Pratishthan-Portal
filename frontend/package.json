@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist node_modules/.vite",
     "install:deps": "npm ci --prefer-offline --no-audit",
-     "build:vercel": "node vercel-build.cjs"
+     "build:vercel": "node vercel-build.js"
   },
   "dependencies": {
     "axios": "^1.10.0",
